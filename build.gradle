@@ -1,0 +1,95 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'idea'
+    apply plugin: 'checkstyle'
+    apply plugin: 'findbugs'
+    apply plugin: 'application'
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = 1.7
+        targetCompatibility = 1.7
+        options.encoding = 'utf-8'
+    }
+
+    compileJava {
+        if (project.hasProperty('failOnWarnings'))
+            options.compilerArgs << "-Werror"
+    }
+
+    findbugs {
+        excludeFilter = new File(project(":").projectDir, "config/findbugs/excludeBugsFilter.xml")
+    }
+
+    tasks.withType(FindBugs) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
+    }
+
+    checkstyle {
+        toolVersion = "6.7"
+        configFile = new File(project(":").projectDir, "config/checkstyle/checkstyle.xml")
+    }
+
+
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile(
+                [group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.1'],
+                [group: 'com.google.guava', name: 'guava', version: '18.0'],
+                [group: 'org.apache.commons', name: 'commons-configuration2', version: '2.0'],
+                [group: 'commons-beanutils', name: 'commons-beanutils', version: '1.8.3']
+        )
+    }
+}
+
+
+def build_number = System.getenv("ONE_FORM_RIO_ADVENTURE") ?: "SNAPSHOT"
+
+group = 'org.oneform.adventure'
+version = "0.0.1-${build_number}"
+
+project.ext {
+    log4jVersion = '1.2.17'
+    slf4jVersion = '1.7.12'
+    guavaVersion = '18.0'
+    junitVersion = '4.12'
+    powermockVersion = '1.6.2'
+}
+
+idea {
+    project {
+        languageLevel = '1.7'
+        jdkName = '1.7'
+
+        ipr {
+            withXml { provider ->
+                provider.node.component
+                        .find { it.@name == 'VcsDirectoryMappings' }
+                        .mapping.@vcs = 'Git'
+            }
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+test {
+    System.setProperty("env", "dev")
+}
+
+run {
+    standardInput = System.in
+    description = 'start one form adventure'
+    mainClassName = 'org.cloud.mud.Application'
+//		applicationName = 'lambda'
+//    systemProperties System.getProperties()
+}

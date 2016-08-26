@@ -1,0 +1,74 @@
+Question 1:
+a = [ 45, 3, 19, 8 ]
+print a.sort.join(' '), "\n"
+Answer 1:
+3 8 19 45
+
+Question 2:
+z = { 'mike' => 75, 'bill' => 18, 'alice' => 32 }
+z['joe'] = 44
+print z.has_key?('mike'), " ", z.has_key?("jones"), "\n"
+Answer 2:
+true false
+
+Question 3:
+Which one will occur runtime error?
+A.var   obj   =   (   );
+B.var   obj   =   [   ];
+C.var   obj   =   {   };
+D.var   obj   =   /   /;
+Answer 3:
+A
+
+Question 4:
+Which one is not javascript reserved word?
+A. with
+B. parent
+C. class
+D. void
+Answer 4:
+B
+
+Question 5:
+Which one will return true?
+A. null   instanceof   Object
+B. null   ===   undefined
+C. null   ==   undefined
+D. NaN   ==   NaN
+Answer 5:
+C
+
+Question 6:
+Please answer the result of the Regular expression. 
+This input is in Ruby format. 
+"variable_1=42"[/[^a-zA-Z0-9_]+/]
+Answer 6:
+=
+
+Question 7:
+Please answer the result of the Regular expression. 
+This input is in Ruby format. 
+"flower666"[/[^0-9]+/]
+Answer 7:
+flower
+
+Question 8:
+Please answer the result of the Regular expression. 
+This input is in Ruby format. 
+"2 lines\nnum 42"[/\d+$/]
+Answer 8:
+42
+
+Question 9:
+This is a command in Git to create a new branch.
+Please fill out the blank space.
+git ____ -b  branch-name
+Answer 9:
+checkout
+
+Question 10:
+This is a command in Git to create a new branch.
+Please fill out the blank space.
+git ___ -m “Initial version”
+Answer 10:
+commit

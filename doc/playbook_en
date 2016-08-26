@@ -1,0 +1,64 @@
+Yupeng
+
+
+T Oh, Who is this beauty?
+  A Oh no, buddy, definitly I am not! I am a real man! I want to go there, could you please open the door for me? 
+  D Really, Okay... Then we need to be friends firstly.
+    A All right
+    D Cool，I like outside activity. Recently we need to oranize a team building, do you have any good ideas?
+      A It is said that there is a drama show in the Huaqing Pool. Besides, it offers food massage as well. Let's go there! 
+      D Emm.., Sounds good! Then you can go find the tickets in the Treasure Box.
+        A No problem!
+        Q Choose to open the Treasure Box.
+
+    A I have no time, but how about going smoking now?
+    D All right, do you have a light?
+      A Nope
+      D Ridiculous! Go find the lighter please!
+        A No problem!
+        Q Choose to open the Treasure Box.
+
+    A Please go away! I really do not have a mood to play now. 
+    Q Begin to fight, and after several rounds, bleeding...
+
+
+T Oh, you are back?
+  A Yeah. I found what you want exactly.
+  D Awesome!
+
+
+
+
+
+
+Xuemin
+
+T Xuemin is busy with packing at the end of the way.
+  A I want to go there, could you please do me a favor to open the door?  
+  D Sorry buddy, I need to leave now. My baby girl is crying.
+    A I can do it for you.
+    D Em..,all right. Disney cartoon is her favorite. Probably you can go find it from the Treasure Box, and I am sure she will love it.
+      A No problem. Please be sure to open the door for me then. Thanks
+      Q Choose to open the Treasure Box.
+
+  A Oh. Come on! Please please please open this door for me.
+  D Okay... Then I have a condition...
+    A What's that?
+    D Oh, There are two things I need to work recently. I need your help for either of them, and which one do you perfer? 
+      A Emm. The first one?
+      D OK, we need to book a VC room for tommorrow's meeting. However, I don't know which ones are with VC. Could you please help find out?
+        A S8
+        D __END__
+        ...
+        A S1
+
+      A Emm. The last one?
+      D Ok, Yupeng was pissing me off days ago. Could you beat him up?:)
+        A OK
+        Q To beat Yupeng off.
+
+          
+
+
+
+
