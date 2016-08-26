@@ -44,7 +44,8 @@ allprojects {
                 [group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.1'],
                 [group: 'com.google.guava', name: 'guava', version: '18.0'],
                 [group: 'org.apache.commons', name: 'commons-configuration2', version: '2.0'],
-                [group: 'commons-beanutils', name: 'commons-beanutils', version: '1.8.3']
+                [group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.2'],
+                [group: 'junit', name: 'junit', version: '4.11']
         )
     }
 }
@@ -90,6 +91,7 @@ run {
     standardInput = System.in
     description = 'start one form adventure'
     mainClassName = 'org.cloud.mud.Application'
+    System.out.println("The game is initalizing...")
 //		applicationName = 'lambda'
 //    systemProperties System.getProperties()
 }

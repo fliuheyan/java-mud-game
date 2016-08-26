@@ -1,0 +1,10 @@
+text Hello My Friends
+ask would you help me? [help,do not help,leave]
+    text Thank you.
+    text Oh no!!!
+        battle
+            success
+                text you win
+            fail
+                text you loose
+    text ......

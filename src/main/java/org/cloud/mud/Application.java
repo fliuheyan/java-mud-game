@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
         boolean finished = false;
+        ContextHelper.init();
         Scanner scanner = new Scanner(System.in);
         while (!finished && scanner.hasNext()) {
             String input = scanner.nextLine();

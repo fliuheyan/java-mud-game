@@ -2,6 +2,8 @@ package org.cloud.mud;
 
 import org.cloud.mud.models.Land;
 import org.cloud.mud.models.NPC;
+import org.cloud.mud.utils.Logger;
+import org.cloud.mud.utils.MockUtils;
 
 import java.io.Console;
 import java.util.ArrayList;
@@ -9,12 +11,15 @@ import java.util.List;
 
 public class EnvironmentContext {
     private static EnvironmentContext context = null;
-    private List<Land> word = new ArrayList<Land>();
+    private List<Land> world = new ArrayList<Land>();
     private Console console = System.console();
     private int location = 0;
+    private List<String> completedTasks = new ArrayList<>();
 
     private EnvironmentContext() {
-        buildWorld();
+        Logger.info("Game map initalizing...");
+        MockUtils.mockWorld(world);
+        Logger.info("Initaliz completed , please enjoy it.");
     }
 
     public static EnvironmentContext getContext() {
@@ -25,11 +30,11 @@ public class EnvironmentContext {
     }
 
     public List getWord() {
-        return word;
+        return world;
     }
 
     public void setWord(List word) {
-        this.word = word;
+        this.world = word;
     }
 
     public Console getConsole() {
@@ -45,21 +50,16 @@ public class EnvironmentContext {
     }
 
     public boolean setLocation(int location) {
-        if (location < word.size()) {
+        if (location < world.size()) {
             this.location = location;
             return true;
         }
         return false;
     }
 
-    public void buildWorld() {
-        word.add(new Land.LandBuilder().buildNPC("穆", 100).buildLand("Aries", 100).build());
-        word.add(new Land.LandBuilder().buildNPC("阿鲁迪巴", 10).buildLand("Taurus", 20).build());
-    }
-
     public String roadMap() {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < word.size(); i++) {
+        for (int i = 0; i < world.size(); i++) {
             result.append("[" + i + "]" + landName(i));
             result.append("\n");
         }
@@ -82,10 +82,10 @@ public class EnvironmentContext {
     }
 
     public String landName(int location) {
-       return word.get(location).getName();
+       return world.get(location).getName();
     }
 
     public Land currentLand() {
-        return word.get(location);
+        return world.get(location);
     }
 }

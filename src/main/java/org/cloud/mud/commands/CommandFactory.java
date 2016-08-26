@@ -1,11 +1,14 @@
 package org.cloud.mud.commands;
 
+import org.cloud.mud.utils.Logger;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CommandFactory {
 
     public static ICommand make(String input) {
+        Logger.info("#############input=>"+input+"<=");
         Matcher matcher1 = Pattern.compile("^(\\w+)\\s(\\w+)$").matcher(input);
         Matcher matcher2 = Pattern.compile("^(\\w+)$").matcher(input);
         if (matcher1.matches()) {
@@ -41,5 +44,14 @@ public class CommandFactory {
             return new Map();
         }
         return new NoAction();
+    }
+
+    public static void main(String[] args) {
+        Matcher matcher2 = Pattern.compile("^(\\w+)\\s(\\w+)$").matcher("list npc");
+        if (matcher2.matches()) {
+            Logger.info(matcher2.group(1));
+        } else {
+            Logger.info("##############");
+        }
     }
 }
