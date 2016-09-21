@@ -7,6 +7,10 @@ public class Playbook {
     private List<Dialog> dialogs = new ArrayList<>();
     private int current=0;
 
+    public Playbook() {
+
+    }
+
     public Playbook(List dialogs) {
         this.dialogs.addAll(dialogs);
     }

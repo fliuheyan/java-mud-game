@@ -1,5 +1,6 @@
 package org.cloud.mud.test;
 
+import org.cloud.mud.playbook.Playbook;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,9 +49,19 @@ public class PlaybookTest {
         return line.split("\t").length - 1;
     }
 
+    class Node {
+        private String context;
+        private Node prev;
+        private Node next;
+        public Node() {
+
+        }
+    }
+
     @Test
     public void test_play_book() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("src/test/resources/playbook.text"));
+        Playbook playbook = new Playbook();
         String line;
         String prev=null;
         String root = null;
@@ -59,6 +70,7 @@ public class PlaybookTest {
             if(prev == null && getLevel(line) == 0) {
                 root = prev = line;
             }
+            // equal prev level
         }
 
     }

@@ -5,11 +5,29 @@ allprojects {
     apply plugin: 'checkstyle'
     apply plugin: 'findbugs'
     apply plugin: 'application'
+    version = 1.0
 
     tasks.withType(JavaCompile) {
         sourceCompatibility = 1.7
         targetCompatibility = 1.7
         options.encoding = 'utf-8'
+    }
+
+    task buildJar(type: Jar) {
+        manifest {
+            attributes 'Main-Class': 'org.cloud.mud.Application',
+                    'version': version
+        }
+        baseName = project.name
+        with jar
+    }
+    jar {
+        manifest {
+            attributes 'Main-Class': 'org.cloud.mud.Application',
+                    'version': version ,
+                    'baseName': "haha"
+        }
+        baseName = project.name
     }
 
     compileJava {
